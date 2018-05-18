@@ -20,7 +20,9 @@ defmodule AroundWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", AroundWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", AroundWeb do
+    pipe_through :api
+
+    resources "/events", EventController, except: [:new, :edit]
+  end
 end
